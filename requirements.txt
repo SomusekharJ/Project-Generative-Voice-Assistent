@@ -1,1 +1,6 @@
 export GEMINI_API_KEY="AIzaSyBABRkdsuiFAcU0fnNYfAlE2WOoQStCpqc"
+os
+google.generativeai 
+speech_recognition
+pyttsx3
+threading
