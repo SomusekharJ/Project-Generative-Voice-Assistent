@@ -1,6 +1,6 @@
-export GEMINI_API_KEY="AIzaSyBABRkdsuiFAcU0fnNYfAlE2WOoQStCpqc"
-os
+export GEMINI_API_KEY="AIzaSyBABRkdsuiFAcU0fnNYfAlE2WOoQStCpqc" -- Run this commnd in terminal
+{os
 google.generativeai 
 speech_recognition
 pyttsx3
-threading
+threading}-These are the modules that need to be installed in python3
