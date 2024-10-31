@@ -1,4 +1,4 @@
-export GEMINI_API_KEY="AIzaSyBABRkdsuiFAcU0fnNYfAlE2WOoQStCpqc" -- Run this commnd in terminal
+export GEMINI_API_KEY="Your Actual API" -- Run this command in terminal
 {os
 google.generativeai 
 speech_recognition
