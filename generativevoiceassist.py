@@ -32,6 +32,15 @@ model = genai.GenerativeModel(
 # Start a chat session with an empty history
 chat_session = model.start_chat(history=[])
 
+# Personalized responses for specific questions
+personal_responses = {
+    "who are you": "I am Ultron, your personal assistant.",
+    "what is your name": "My name is Ultron.",
+    "who built you": "I was built by SomuSekhar J.",
+    "what are you": "I am Ultron, an assistant built to help you with various tasks.",
+    "tell me about yourself": "I am Ultron, created by SomuSekhar J to assist and answer your queries."
+}
+
 def get_voice_input():
     """Continuously listen for voice input until Enter is pressed."""
     print("Listening... Press Enter to stop listening and process the question.")
@@ -80,19 +89,25 @@ def assistant():
             if user_input is None:
                 continue  # Retry if there was an error in voice input
         elif mode == "exit":
-            print("Goodbye!")
+            print("Thank You , Goodbye!")
             break
         else:
             print("Invalid input mode. Please type 'text' or 'voice' or 'exit'.")
             continue
 
-        # Send user input to the assistant
-        print("Processing your question...")
-        response = chat_session.send_message(user_input)
+        # Check if the input matches any personalized response
+        lower_input = user_input.lower()
+        response_text = personal_responses.get(lower_input, None)
         
+        # If no personal response is matched, send the input to the AI model
+        if not response_text:
+            print("Processing your question...")
+            response = chat_session.send_message(user_input)
+            response_text = response.text
+
         # Print and speak the response, with the option to interrupt reading
-        print("ULTRON:", response.text)
-        speak_text(response.text)
+        print("ULTRON:", response_text)
+        speak_text(response_text)
 
 # Start the assistant
 assistant()
